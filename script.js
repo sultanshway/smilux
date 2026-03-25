@@ -10,11 +10,11 @@ const images = [
     "imegs/i7.jpg",
     "imegs/i13.jpg",
     "imegs/i8.jpg",
-    "imegs/i9.jpg",
+    // "imegs/i9.jpg",
     // "imegs/i10.jpg",
-    "imegs/i11.jpg",
+    // "imegs/i11.jpg",
     // "imegs/i12.jpg",
-    "imegs/i14.jpg",
+    // "imegs/i14.jpg",
 ];
 
 if (heroImg) {
