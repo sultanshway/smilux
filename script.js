@@ -130,3 +130,23 @@ if (menuBtn && navLinks) {
         });
     });
 }
+
+const root = document.documentElement;
+const themeBtn = document.getElementById('theme-toggle');
+const THEME_KEY = 'site-theme';
+
+function applyTheme(theme) {
+    root.setAttribute('data-theme', theme);
+    localStorage.setItem(THEME_KEY, theme);
+
+    const icon = themeBtn.querySelector('i');
+    icon.className = theme === 'light' ? 'bx bx-sun' : 'bx bx-moon';
+}
+
+const savedTheme = localStorage.getItem(THEME_KEY) || 'light';
+applyTheme(savedTheme);
+
+themeBtn.addEventListener('click', () => {
+    const newTheme = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+    applyTheme(newTheme);
+});

@@ -20,27 +20,177 @@
     --radius-lg: 20px;
 }
 
+:root[data-theme="dark"] {
+    /* الألوان الأساسية */
+    --primary: #0aa0b5;
+    --accent: #00c2c2;
+
+    /* الخلفيات (Soft Dark عالمي) */
+    --bg-light: #141617;     /* الخلفية العامة */
+    --bg-hero: #1a1d1f;      /* خلفية الهيرو */
+    --light: #121718;        /* خلفية العناصر الثانوية */
+    --card-bg: #1c1f21;      /* خلفية الكروت */
+    --section-bg: #16181a;   /* خلفية الأقسام */
+
+    /* النصوص */
+    --text-dark: #e8e8e8;    /* النص الأساسي */
+    --text-gray: #b8b8b8;    /* النص الثانوي */
+    --text-muted: #8a8a8a;   /* النص الضعيف */
+
+    /* الحدود */
+    --border-soft: rgba(255, 255, 255, 0.06);
+
+    /* الظلال */
+    --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.35);
+}
+
+
+[data-theme="dark"] body {
+    background: var(--bg-light);
+    color: var(--text-dark);
+}
+
+
+[data-theme="dark"] .top-bar {
+    background: #1c1f21; /* أفتح طبقة */
+    color: var(--text-gray);
+    border-bottom: 1px solid var(--border-soft);
+}
+
+[data-theme="dark"] .top-bar i {
+    color: var(--text-dark);
+}
+
+
+
+[data-theme="dark"] .navbar {
+    background: #181a1c;
+    border-bottom: 1px solid var(--border-soft);
+}
+
+[data-theme="dark"] .navbar a {
+    color: var(--text-dark);
+}
+
+[data-theme="dark"] .navbar a:hover {
+    color: var(--accent);
+}
+
+[data-theme="dark"] .navbar i {
+    color: var(--text-dark);
+}
+
+/* زر أساسي */
+.btn-primary {
+    background: #0aa0b5;
+    color: #fff;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 6px;
+    transition: 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: #00c2c2;
+}
+
+/* زر ثانوي */
+.btn-secondary {
+    background: #2a2a2a;
+    color: #fff;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 6px;
+    transition: 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background: #3a3a3a;
+}
+
+/* تثبيت الأزرار في الوضع الداكن */
+[data-theme="dark"] .btn-primary {
+    background: #0aa0b5 !important;
+    color: #fff !important;
+}
+
+[data-theme="dark"] .btn-primary:hover {
+    background: #00c2c2 !important;
+}
+
+[data-theme="dark"] .btn-secondary {
+    background: #2a2a2a !important;
+    color: #fff !important;
+}
+
+[data-theme="dark"] .btn-secondary:hover {
+    background: #3a3a3a !important;
+}
+[data-theme="dark"] i,
+[data-theme="dark"] svg {
+    color: var(--text-dark) !important;
+    fill: var(--text-dark) !important;
+}
+[data-theme="dark"] .card,
+[data-theme="dark"] .service-card,
+[data-theme="dark"] .box,
+[data-theme="dark"] .team-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-soft);
+    box-shadow: var(--shadow-soft);
+    color: var(--text-dark);
+}
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3 {
+    color: var(--text-dark);
+}
+
+[data-theme="dark"] p,
+[data-theme="dark"] li {
+    color: var(--text-gray);
+}
+
+
 html {
     scroll-behavior: smooth;
 }
 
 body {
     background: var(--bg-light);
+    color: var(--text-dark);
     line-height: 1.6;
     overflow-x: hidden;
-    color: var(--text-dark);
+    position: relative;
+
+}
+
+
+
+.theme-toggle {
+    font-size: 24px;
+    cursor: pointer;
+    margin-left: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.theme-toggle i {
+    pointer-events: none;
+    color: var(--primary);
 }
 
 img,
 video,
 iframe {
-    max-width: 100%;
     display: block;
+    max-width: 100%;
 }
 
 .container {
     width: min(92%, 1200px);
     margin: 0 auto;
+    overflow-x: clip;
 }
 
 .flex-between {
@@ -182,6 +332,31 @@ iframe {
     color: #fff;
     padding: 80px 0;
 }
+
+[data-theme="dark"] .hero {
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(0, 20, 28, 0.48) 0%,
+            rgba(0, 18, 26, 0.60) 35%,
+            rgba(0, 15, 22, 0.72) 65%,
+            rgba(0, 12, 18, 0.82) 100%
+        ),
+        url("imegs/img1.jpg") no-repeat center/cover;
+}
+
+[data-theme="dark"] .hero h1,
+[data-theme="dark"] .hero p {
+    color: var(--text-dark);
+}
+
+
+
+
+
+
+
+
 
 .hero h1 {
     max-width: 640px;
@@ -930,6 +1105,13 @@ select::-webkit-scrollbar-track {
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         border-radius: 0 0 16px 16px;
         z-index: 9999;
+    }
+
+    .theme-toggle {
+        width: 100%;
+        padding: 10px 0;
+        margin: 0;
+        justify-content: center;
     }
 
     .nav-links.active {
