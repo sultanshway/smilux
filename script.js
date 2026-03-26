@@ -116,6 +116,10 @@ if (backToTop) {
     });
 }
 
+function goBack() {
+    window.location.href = "index.html"; // غيّرها لاسم صفحتك الرئيسية
+}
+
 const menuBtn = document.getElementById("menu-btn");
 const navLinks = document.getElementById("nav-links");
 

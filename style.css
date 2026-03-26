@@ -353,11 +353,6 @@ iframe {
 
 
 
-
-
-
-
-
 .hero h1 {
     max-width: 640px;
     font-size: clamp(2rem, 5vw, 3rem);
@@ -930,7 +925,7 @@ select:focus {
 /* صفحة الحجز ال booking */
 .booking-header {
     text-align: center;
-    min-height: 90px;
+    height: 180px;
     width: 100%;
     background-color: #00a3a3;
     color: #fff;
@@ -1062,6 +1057,58 @@ select::-webkit-scrollbar-track {
     box-shadow: 0 8px 20px rgba(10, 166, 200, 0.35);
     transform: translateY(-3px);
 }
+
+/* زر الرجوع – الشكل العام */
+.back-btn {
+    margin-top: 10px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: none;
+    background: #f1f1f1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.25s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    outline: none;
+}
+
+/* الأيقونة */
+.back-btn i {
+    font-size: 20px;
+    color: var(--primary);
+    transition: 0.25s ease;
+}
+
+/* أنيميشن لطيف */
+.back-btn:hover {
+    transform: translateX(-4px) scale(1.07);
+    background: #e7e7e7;
+}
+
+/* تأثير الضغط */
+.back-btn:active {
+    transform: scale(0.92);
+}
+
+/* الوضع الليلي */
+[data-theme="dark"] .back-btn {
+    background: var(--light);
+    border: 1px solid var(--border-soft);
+    box-shadow: var(--shadow-soft);
+}
+
+[data-theme="dark"] .back-btn i {
+    color: var(--accent);
+}
+
+[data-theme="dark"] .back-btn:hover {
+    background: var(--card-bg);
+    transform: translateX(-4px) scale(1.07);
+}
+
 
 /* resspon */
 @media (max-width: 992px) {
