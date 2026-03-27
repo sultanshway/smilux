@@ -14,9 +14,6 @@
     <header class="booking-header">
         <h1><i class="fa-solid fa-tooth"></i>Smilux</h1>
         <h2>Appointment Booking</h2>
-        <button class="back-btn" type="button" onclick="goBack()">
-            <i class="fa-solid fa-arrow-left"></i>
-        </button>
     </header>
 
     <main class="booking-page">
@@ -41,12 +38,18 @@
                 <small class="error"></small>
             </div>
 
-            <button class="btn btn-primary" type="submit">Send Message</button>
+            <button class="btn-sub" type="submit">Send Message</button>
 
             <p class="success-msg" id="successMsg">Message sent successfully!</p>
 
         </form>
     </main>
+
+    <div class="back-container">
+        <button class="back-btn" onclick="goBack()">
+            <i class="fa-solid fa-arrow-left"></i>
+        </button>
+    </div>
 
     <script src="script.js"></script>
 </body>
