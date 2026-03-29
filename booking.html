@@ -12,37 +12,101 @@
 
 <body>
     <header class="booking-header">
-        <h1><i class="fa-solid fa-tooth"></i>Smilux</h1>
-        <h2>Appointment Booking</h2>
+        <h1><i class="fa-solid fa-tooth"></i> Smilux</h1>
+        <h2>Smart Appointment Booking</h2>
     </header>
 
     <main class="booking-page">
-        <form class="contact-form box" id="contactForm" data-aos="fade-left">
-            <div class="form-group">
-                <input type="text" id="name" placeholder="Full Name" required>
-                <small class="error"></small>
+        <div class="booking-box box smart-booking-box">
+            <div class="booking-intro">
+                <h2>Book Your Appointment</h2>
+                <p>
+                    Choose the service, select a date, pick an available time slot,
+                    and complete your appointment request.
+                </p>
             </div>
 
-            <div class="form-group">
-                <input type="email" id="email" placeholder="Email Address" required>
-                <small class="error"></small>
-            </div>
+            <form class="contact-form smart-booking-form" id="bookingForm">
 
-            <div class="form-group">
-                <input type="text" id="phone" placeholder="Phone Number" required>
-                <small class="error"></small>
-            </div>
+                <div class="form-group">
+                    <label for="bookingService">Select Service</label>
+                    <div class="select-wrapper">
+                        <select id="bookingService" required>
+                            <option value="">Choose a service</option>
+                            <option value="Teeth Cleaning">Teeth Cleaning</option>
+                            <option value="Teeth Whitening">Teeth Whitening</option>
+                            <option value="Orthodontics">Orthodontics</option>
+                            <option value="Tooth Repair">Tooth Repair</option>
+                            <option value="Dental Surgery">Dental Surgery</option>
+                            <option value="Consultation">Consultation</option>
+                        </select>
+                    </div>
+                    <small class="error"></small>
+                </div>
 
-            <div class="form-group">
-                <textarea id="message" placeholder="Your Message" required></textarea>
-                <small class="error"></small>
-            </div>
+                <div class="form-group">
+                    <label for="bookingDate">Select Date</label>
+                    <input type="date" id="bookingDate" required>
+                    <small class="error"></small>
+                </div>
 
-            <button class="btn-sub" type="submit">Send Message</button>
+                <div class="form-group">
+                    <label>Available Time Slots</label>
+                    <div id="timeSlots" class="time-slots">
+                        <p class="slot-helper">Please choose a date first.</p>
+                    </div>
+                    <small class="error" id="timeSlotError"></small>
+                </div>
 
-            <p class="success-msg" id="successMsg">Message sent successfully!</p>
+                <div class="booking-divider"></div>
 
-        </form>
+                <div class="form-group">
+                    <label for="bookingName">Full Name</label>
+                    <input type="text" id="bookingName" placeholder="Full Name" required>
+                    <small class="error"></small>
+                </div>
+
+                <div class="form-group">
+                    <label for="bookingEmail">Email Address</label>
+                    <input type="email" id="bookingEmail" placeholder="Email Address" required>
+                    <small class="error"></small>
+                </div>
+
+                <div class="form-group">
+                    <label for="bookingPhone">Phone Number</label>
+                    <input type="text" id="bookingPhone" placeholder="Phone Number" required>
+                    <small class="error"></small>
+                </div>
+
+                <div class="form-group">
+                    <label for="bookingMessage">Notes (Optional)</label>
+                    <textarea id="bookingMessage" placeholder="Any notes or details about your appointment"></textarea>
+                    <small class="error"></small>
+                </div>
+
+                <div class="booking-summary" id="bookingSummary">
+                    <h4>Booking Summary</h4>
+                    <div class="summary-row">
+                        <span>Service</span>
+                        <strong id="summaryService">Not selected</strong>
+                    </div>
+                    <div class="summary-row">
+                        <span>Date</span>
+                        <strong id="summaryDate">Not selected</strong>
+                    </div>
+                    <div class="summary-row">
+                        <span>Time</span>
+                        <strong id="summaryTime">Not selected</strong>
+                    </div>
+                </div>
+
+                <button class="btn-sub" type="submit">Confirm Booking</button>
+
+                <p class="success-msg" id="bookingSuccessMsg">
+                    Your appointment request has been submitted successfully!
+                </p>
+            </form>
+        </div>
     </main>
 
     <div class="back-container">
