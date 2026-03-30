@@ -340,7 +340,7 @@ li {
 
 /* الهيرو */
 .hero {
-    height: 108vh;
+    height: 110vh;
     background: var(--hero-overlay-light), url("imegs/img1.jpg") no-repeat center/cover;
     display: flex;
     align-items: center;
@@ -1319,7 +1319,7 @@ select::-webkit-scrollbar-track {
 
     .hero {
         min-height: auto;
-        height: 102vh;
+        height: 100vh;
         padding: 70px 0;
         text-align: center;
         background-position: center;
