@@ -71,6 +71,8 @@ function setupContactFormValidation(formId, successMsgId) {
 
     if (!form) return;
 
+    form.setAttribute("novalidate", "novalidate");
+
     form.addEventListener("submit", function (e) {
         e.preventDefault();
 
@@ -134,6 +136,7 @@ function setupContactFormValidation(formId, successMsgId) {
             }
 
             form.reset();
+
             fields.forEach((field) => {
                 if (field) field.classList.remove("input-error");
             });
@@ -240,20 +243,24 @@ function updateBookingSummary() {
 
 function clearFieldError(field) {
     if (!field) return;
+
     const error = field.nextElementSibling;
     if (error && error.classList.contains("error")) {
         error.style.display = "none";
     }
+
     field.classList.remove("input-error");
 }
 
 function showFieldError(field, message) {
     if (!field) return;
+
     const error = field.nextElementSibling;
     if (error && error.classList.contains("error")) {
         error.textContent = message;
         error.style.display = "block";
     }
+
     field.classList.add("input-error");
 }
 
@@ -289,15 +296,18 @@ function renderTimeSlots(dateString) {
         } else {
             slotBtn.addEventListener("click", () => {
                 const currentSelected = timeSlotsContainer.querySelector(".time-slot.selected");
+
                 if (currentSelected) {
                     currentSelected.classList.remove("selected");
                 }
 
                 slotBtn.classList.add("selected");
                 selectedTimeSlot = slot;
+
                 if (timeSlotError) {
                     timeSlotError.style.display = "none";
                 }
+
                 updateBookingSummary();
             });
         }
@@ -386,11 +396,6 @@ function resetBookingForm() {
     bookingForm.reset();
     selectedTimeSlot = "";
 
-    const selectedSlot = bookingForm.querySelector(".time-slot.selected");
-    if (selectedSlot) {
-        selectedSlot.classList.remove("selected");
-    }
-
     bookingForm.querySelectorAll(".error").forEach((error) => {
         error.style.display = "none";
     });
@@ -405,12 +410,17 @@ function resetBookingForm() {
 }
 
 if (bookingForm) {
+    bookingForm.setAttribute("novalidate", "novalidate");
+
     setMinBookingDate();
     updateBookingSummary();
+    renderTimeSlots("");
 
     if (bookingService) {
-        bookingService.addEventListener("change", updateBookingSummary);
-        bookingService.addEventListener("input", () => clearFieldError(bookingService));
+        bookingService.addEventListener("change", () => {
+            clearFieldError(bookingService);
+            updateBookingSummary();
+        });
     }
 
     if (bookingDate) {
@@ -446,12 +456,16 @@ if (bookingForm) {
 
         if (bookingSuccessMsg) {
             bookingSuccessMsg.style.display = "block";
-            setTimeout(() => {
-                bookingSuccessMsg.style.display = "none";
-            }, 4000);
         }
 
         resetBookingForm();
+
+        if (bookingSuccessMsg) {
+            bookingSuccessMsg.style.display = "block";
+            setTimeout(() => {
+                bookingSuccessMsg.style.display = "none";
+            }, 3000);
+        }
     });
 }
 
