@@ -1344,7 +1344,7 @@ select::-webkit-scrollbar-track {
 
     .hero {
         min-height: auto;
-        height: 94vh;
+        height: 90vh;
         padding: 70px 0;
         text-align: center;
         background-position: center top;
